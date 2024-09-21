@@ -35,6 +35,9 @@ jobs:
           repo_url: 'git@github.com:Baeldung/tutorials.git'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      - name: size
+        run: du -hs ./tutorials
+
   test-without-ref:
     needs: test-with-ref
     runs-on: ubuntu-latest

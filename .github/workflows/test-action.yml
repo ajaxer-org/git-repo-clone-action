@@ -32,11 +32,12 @@ jobs:
       - name: Cloning other public repo
         uses: ajaxer-org/git-repo-clone-action@development
         with:
-          repo_url: 'git@github.com:Baeldung/tutorials.git'
+          repo_url: 'git@github.com:NixOS/nixpkgs.git'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          directory: 'size-repo'
 
       - name: size
-        run: du -hs ./tutorials
+        run: du -hs ./size-repo
 
   test-without-ref:
     needs: test-with-ref

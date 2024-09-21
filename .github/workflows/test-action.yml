@@ -29,6 +29,12 @@ jobs:
           git -C ./test-repo commit -m "added $UUID"
           git -C ./test-repo push origin
 
+      - name: Cloning other public repo
+        uses: ajaxer-org/git-repo-clone-action@development
+        with:
+          repo_url: 'git@github.com:Baeldung/tutorials.git'
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
   test-without-ref:
     needs: test-with-ref
     runs-on: ubuntu-latest
